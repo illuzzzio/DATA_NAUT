@@ -2,8 +2,9 @@ import streamlit as st
 import base64
 # Addign a title to my webapp
 st.title("DATANAUT")
-from scrape import scrape_it
+from scrape import scrape_it, split_dom_content, extract_main_content, clean_the_body_content
 
+from bs4 import BeautifulSoup
 # Set page config
 st.set_page_config(page_title="My App with Background", layout="wide")
 
@@ -34,4 +35,15 @@ url = st.text_input("Enter the Website URL: ")
 if(st.button("Scrape it UP")):
   st.write("Gathering information via DATANAUT.... ")
   result = scrape_it(url) # this function form scape.py lib will scrape the website with that particular url
-  print(result)
+
+  body_content = extract_main_content(result)
+  cleaned_content = clean_the_body_content(body_content)
+
+  st.session_state.dom_content = cleaned_content
+
+  with st.expander("View DOM Content"):
+     st.text_area("DOM Content", cleaned_content, height = 300)
+
+  
+
+
