@@ -1,0 +1,15 @@
+streamlit
+langchain
+langchain_ollama
+beautifulsoup4
+selenium
+lxml
+html5lib
+dotenv 
+
+link =https://googlechromelabs.github.io/ch...
+
+above link is for downloading automating chrome drivers 
+
+
+brightdata is a software , that basically helps to parse security , if we try to scrape some website that is too confidential or legal , they will stop us via captch or something to scrape it , so we will use brightdata to overcome this 
