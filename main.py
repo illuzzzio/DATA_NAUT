@@ -44,6 +44,13 @@ if(st.button("Scrape it UP")):
   with st.expander("View DOM Content"):
      st.text_area("DOM Content", cleaned_content, height = 300)
 
-  
+  # now we will pass the dom content by user as a prompt to llm to retrive the data 
 
 
+if "dom_content" in st.session_state:
+   parse_description = st.text_area("Ask for the data, you want to get from DATANAUT")
+   if st.button("Parse it"):
+      if parse_description:
+         st.write("Parsing the Content....")
+
+         dom_chunks = split_dom_content(st.session_state.dom_content)
